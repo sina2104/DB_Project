@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS cuisine.Recipe
 (
     ID_recipe BIGINT PRIMARY KEY,
     recipe_name VARCHAR(50),
+    recipe_chef VARCHAR(50),
     recipe_amount INT NOT NULL,
     recipe_ingredients VARCHAR(50) NOT NULL REFERENCES cuisine.Ingredient(ID_ingredient),
     recipe_time TIME NOT NULL,
@@ -72,5 +73,3 @@ CREATE TABLE IF NOT EXISTS cuisine.PaidRecipes
     ID_paid_category VARCHAR(50) PRIMARY KEY REFERENCES cuisine.RecipesCategories(ID_category),
     paid_categories_amount INT NOT NULL
 );
-
-
