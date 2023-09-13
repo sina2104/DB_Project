@@ -1,59 +1,60 @@
-# Проект по базам данных
-## Имя проекта: Кулинарные рецепты
+*[English](README-cs.md) ∙ [Russian](README-de.md)*
+# Database Project
+## Project Name: Cooking Recipes
 
-### Актуальность:
-Сейчас в сети довольно таки много сайтов разнообразных рецептов, который каждый
-может найти за несколько секунд. Но проблема в том, что далеко не все эти рецепты были
-написаны настоящими шеф-поварами.
-### Наша задача:
-Сделать удобную бд, в которой каждый шеф-повар мог опубликовать собственные
-рецепты и чтобы начинающие повари могли попробовать приготовить простые
-бесплатные рецепты.
-### Что реализовано:
-Я в своей модели использую рецепты популярных и проверенных шеф-поваров, которые
-готовы продать набор своих рецептов всем желающим. Также у нас каждый вторник
-выйдут десятки простых бесплатных рецептов, которые каждый домашний повар может
-себе приготовить.
-Также для удобства клиентов, каждый набор рецептов находится в отдельной категории
-рецептов, чтобы каждый человек мог выбрать свой любимый.
-Каждый набор составляется из десятки разных рецептов профессиональных шеф-поваров.
-В каждом из них написаны подробные шаги подготовки, необходимые ингредиенты и
-время подготовки. Также написана пищевая ценность каждого ингредиента.
-И также каждый месяц опубликуются скидки для самых популярных наборов, чтобы все
-могли попробовать эти рецепты.
-## Концептуальная модель:
+### Relevance:
+Now there are quite a lot of sites of various recipes on the web, which everyone
+can find in a few seconds. But the problem is that not all of these recipes were
+written by real chefs.
+### Our task:
+To make a convenient database in which each chef could publish his own
+recipes and so that novice cooks could try to cook simple
+free recipes.
+### What is implemented:
+In my model, I use recipes from popular and proven chefs who
+we are ready to sell a set of our recipes to everyone. Also, every Tuesday we
+will have dozens of simple free recipes that every home cook can
+cook for himself.
+Also for the convenience of customers, each set of recipes is in a separate
+recipe category so that everyone can choose their favorite.
+Each set is made up of dozens of different recipes from professional chefs.
+Each of them contains detailed preparation steps, necessary ingredients and
+preparation time. The nutritional value of each ingredient is also written.
+And also discounts for the most popular kits will be published every month so that everyone
+can try these recipes.
+## Conceptual model:
 [Concept](https://ibb.co/kMz3Yrp)!
-В концептуальной модели, так как не существуют категории и конкретных набор рецептов
-для бесплатных рецептов, сделаны 2 разные сущности: платные и бесплатные рецепты.
-Также можно заметить, что существуют только 2 действующих лиц. Пользователь,
-который должен изначально выбрать какой он рецепт хочет и шеф-повар, который может
-опубликовать свой набор рецептов.
-Все выбранные наборы собираются в корзину и после покупки будет доступ ко всем
-имеющимся рецептам.
-## Физическая модель:
+In the conceptual model, since there are no categories and a specific set of recipes
+for free recipes, 2 different entities are made: paid and free recipes.
+You can also notice that there are only 2 actors. A user
+who must initially choose which recipe he wants and a chef who can
+publish his own set of recipes.
+All the selected kits are collected in the shopping cart and after purchase there will be access to all
+available recipes.
+## Physical model:
 [physic](https://ibb.co/RCQtHTG)!
-Легко заметить, что каждая таблица находится в виде 2НФ. Нам не нужно отношение 3НФ,
-так как, если сделать так, что каждый не ключевой атрибут нетранзитивно зависел от
-первичного ключа, то у нас будут слишком много таблиц, что усложняет нашу базу
-данных.
-Также можно заметить, что только таблицы «Бесплатные рецептов», «Платные рецепты»
-и «Категория рецептов» находится в SCD-1, из-за поддержки количества, которое может
-меняться. А таблица «Скидки» находится в SCD-2, так как у каждой скидки есть дата
-начала действия и срок годности скидки, которое должно отслеживаться. Для остальных
-таблиц , данные не будут меняться после первого попадания в таблицу, поэтому они
-находятся в SCD-0.
-## Возможные проблемы:
- 1. Сущности как «бесплатные рецепты» и «платные рецепты» похожи друг на друга и
-возможно есть смысл попробовать обобщить их.
- 2. В дальнейшем возможно надо будет добавить «администраторы» для контроля
-нашей модели.
- 3. Для развитии модели при добавлении новых сущностей, например как подбор
-любимого рецепта, возможно нужны будут критические изменения в модели.
-## Вывод:
-Как можно было заметить с помощью диаграмм очень легко показать роль каждого
-объекта и также показать все взаимосвязи между ними. С помощью НФ и SCD можно
-заметно упрощать базу данных.
-### Все ресурсы:
-- https://app.dbdesigner.net/ - для физической модели
-- https://lucid.app/ - для концептуальной модели
-- https://habr.com/ - для используемых определений
+It is easy to notice that each table is in the form of 2NF. We don't need a 3NF relation,
+because if we make each non-key attribute non-transitively dependent on
+the primary key, then we will have too many tables, which complicates our
+database.
+You can also notice that only the tables "Free Recipes", "Paid Recipes"
+and "Recipe Category" are in SCD-1, due to the support of the quantity that can
+change. And the "Discounts" table is located in SCD-2, since each discount has
+a start date and expiration date of the discount, which should be monitored. For the rest
+of the tables, the data will not change after the first hit in the table, so they
+are in SCD-0.
+## Possible problems:
+1. Entities like "free recipes" and "paid recipes" are similar to each other and
+it may make sense to try to generalize them.
+2. In the future, it may be necessary to add "administrators" to control
+our model.
+3. For the development of the model when adding new entities, for example, as a selection
+a favorite recipe, perhaps critical changes in the model will be needed.
+## Result:
+As you can see with the help of diagrams, it is very easy to show the role of each
+object and also show all the relationships between them. With the help of NF(normalization form) and SCD(slowly changing dimension), you can
+significantly simplify the database.
+### All resources:
+- https://app.dbdesigner.net / - for the physical model
+- https://lucid.app / - for the conceptual model
+- https://habr.com / - for the definitions used
