@@ -1,4 +1,4 @@
-*[English](README-cs.md) ∙ [Russian](README-de.md)*
+*[English](README.md) ∙ [Russian](README-ru.md)*
 # Database Project
 ## Project Name: Cooking Recipes
 
